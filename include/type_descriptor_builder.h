@@ -10,16 +10,16 @@ namespace reflect
         explicit TypeDescriptorBuilder(const std::string &name) : builder(name) {}
 
         template <typename Var>
-        TypeDescriptorBuilder &addMemberVariable(const std::string &name, Var Class::*var)
+        TypeDescriptorBuilder &property(const std::string &name, Var Class::*var)
         {
-            builder.addMemberVariable(name, var);
+            builder.property(name, var);
             return *this;
         }
 
         template <typename Func>
-        TypeDescriptorBuilder &addMemberFunction(const std::string &name, Func Class::*func)
+        TypeDescriptorBuilder &method(const std::string &name, Func Class::*func)
         {
-            builder.addMemberFunction(name, func);
+            builder.method(name, func);
             return *this;
         }
 

@@ -12,7 +12,7 @@ namespace reflect
         ~RawTypeDescriptorBuilder();
 
         template <typename Class, typename Var>
-        void addMemberVariable(const string &name, Var Class::*var)
+        void property(const string &name, Var Class::*var)
         {
             MemberVariable variable(var);
             variable.name_ = name;
@@ -20,7 +20,7 @@ namespace reflect
         }
 
         template <typename Class, typename Func>
-        void addMemberFunction(const string &name, Func Class::*func)
+        void method(const string &name, Func Class::*func)
         {
             MemberFunction function(func);
             function.name_ = name;

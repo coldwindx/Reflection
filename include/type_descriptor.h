@@ -29,24 +29,18 @@ namespace reflect
         {
             return memberFuncs;
         }
-        MemberVariable getMemberVariables(string_view name) const
+        MemberVariable getMemberVariable(string_view name) const
         {
             for (const auto &var : memberVars)
-            {
                 if (var.getName() == name)
-                {
                     return var;
-                }
-            }
             throw std::runtime_error("Member variable not found");
         }
         MemberFunction getMemberFunction(string_view name) const
         {
             for (const auto &func : memberFuncs)
-            {
                 if (func.getName() == name)
                     return func;
-            }
             throw std::runtime_error("Member function not found");
         }
 
