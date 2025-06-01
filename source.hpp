@@ -1,4 +1,4 @@
-// source.hpp
+#pragma once
 #ifdef __META_PARSER__
 #define META __attribute__((annotate("reflect-class")))
 #define PROPERTY(...) __attribute__((annotate("reflect-property;" #__VA_ARGS__)))
@@ -9,14 +9,6 @@
 #define FUNCTION()
 #endif
 
-class META MyClass
-{
-public:
-    FUNCTION()
-	void Func()
-	{
-		int a = 1;
-	}
-	PROPERTY()
-	int field{0};
+
+class META HelloController {
 };

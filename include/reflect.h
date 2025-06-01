@@ -27,6 +27,9 @@ namespace reflect
     public:
         Generator(const char *source, const char *target);
         ~Generator();
+        // protected:
+        static string replaceSrcName(const string &originName, const string &suffix);
+
     private:
         std::ofstream stream;
     };

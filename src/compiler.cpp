@@ -1,12 +1,15 @@
 #include "compiler.h"
+
 namespace reflect
 {
-    const vector<const char *> MetaCompiler::arguments = {"c++", "-std=c++17", "-D __clang__", "-D __META_PARSER__"};
+    const vector<const char *> MetaCompiler::arguments = {"c++",
+                                                          "-std=c++17",
+                                                          "-D __clang__",
+                                                          "-D __META_PARSER__"};
 
     MetaCompiler::MetaCompiler(const char *source_filename)
     {
         index = clang_createIndex(0, 0);
-        printf("Parsing source file: %s\n", source_filename);
         transaction = clang_parseTranslationUnit(index, source_filename, arguments.data(), arguments.size(), nullptr, 0, CXTranslationUnit_None);
         if (!transaction)
             throw std::runtime_error("Failed to parse translation unit");
